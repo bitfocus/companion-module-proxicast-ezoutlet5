@@ -1,0 +1,31 @@
+{
+	"id": "proxicast-ezoutlet5",
+	"name": "proxicast-ezoutlet5",
+	"shortname": "ezoutlet5",
+	"description": "Proxicast EZOutlet 5",
+	"version": "0.0.1",
+	"license": "MIT",
+	"repository": "git+https://github.com/bitfocus/companion-module-generic-http.git",
+	"bugs": "https://github.com/bitfocus/companion-module-generic-http/issues",
+	"maintainers": [
+		{
+			"name": "Eric Dieckman",
+			"email": "eric.dieckman@wisc.edu"
+		}
+	],
+	"legacyIds": [],
+	"runtime": {
+		"type": "node18",
+		"api": "nodejs-ipc",
+		"apiVersion": "0.0.0",
+		"entrypoint": "../index.js"
+	},
+	"manufacturer": "Proxicast",
+	"products": [
+		"EZOutlet5"
+	],
+	"keywords": [
+		"Protocol",
+		"Generic"
+	]
+}

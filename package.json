@@ -1,0 +1,22 @@
+{
+	"name": "proxicast-ezoutlet5",
+	"version": "0.0.1",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/uw-madison-aae/companion-module-proxicast-ezoutlet5.git"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"@companion-module/base": "~1.1.0",
+		"got": "^12.5.3",
+		"jimp": "^0.16.2"
+	},
+	"devDependencies": {
+		"@companion-module/tools": "^0.5.2"
+	}
+}
