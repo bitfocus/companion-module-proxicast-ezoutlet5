@@ -27,5 +27,21 @@ export const configFields = [
 		label: 'Password',
 		width: 4,
 		default: '',
-	}
+	},
+	{
+		type: 'checkbox',
+		id: 'polling',
+		label: 'Enable Polling?',
+		width: 6,
+		default: false,
+	},
+	{
+		type: 'number',
+		id: 'interval',
+		label: `Polling interval in milliseconds (default: 500, min: 250)`,
+		width: 12,
+		min: 250,
+		default: 500,
+		required: true,
+	},	
 ]

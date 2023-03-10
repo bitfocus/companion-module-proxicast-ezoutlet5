@@ -2,6 +2,7 @@ import { InstanceBase, runEntrypoint, InstanceStatus, combineRgb } from '@compan
 import got from 'got'
 import { configFields } from './config.js'
 import { upgradeScripts } from './upgrade.js'
+import { initPolling } from './polling.js'
 import { FIELDS } from './fields.js'
 import JimpRaw from 'jimp'
 
@@ -177,13 +178,13 @@ class ProxicastEZOutlet5 extends InstanceBase {
 					choices: this.choiceToggle,
 				},
 			],
-			callback: (action) => {
+			callback: async (action, context) => {
 				if (action.options.mode == Constants.On) {
-					this.projector.setPower(true)
+					await this.setPower(true)
 				} else if (action.options.mode == Constants.Off) {
-					this.projector.setPower(false)
+					await this.setPower(false)
 				} else if (action.options.mode == Constants.Toggle) {
-					this.projector.setPower()
+					await this.setPower()
 				} else {
 					this.log('error', 'Invalid value for power command: ' + action.options.mode)
 				}
@@ -430,6 +431,43 @@ class ProxicastEZOutlet5 extends InstanceBase {
 			model: '',
 		})
 	}	
+
+	 /**
+	 * INTERNAL: Sets the power of the outlet
+	 *
+	 * @access protected
+	 * @since 1.0.0
+	 */
+	async setPower(on) {
+		let url = 'http://' + this.config.ip + ':' + this.config.port + '/cgi-bin/control2.cgi?user=' + this.config.username + '&passwd=' + this.config.password + '&target=1&control='
+
+		if (on) {
+			url = url + '1'
+		}
+
+		if (!on) {
+			url = url + '0'
+		}
+
+
+		const options = {
+			retry: {
+				limit: 0
+			}
+		}
+
+		try {
+			const response = await got.get(url, options)
+
+			this.log('info', response)
+
+			this.updateStatus(InstanceStatus.Ok)
+		} catch (e) {
+			this.log('error', `HTTP GET Request failed (${e.message})`)
+			this.updateStatus(InstanceStatus.UnknownError, e.code)
+		}
+	}
 }
 
 runEntrypoint(ProxicastEZOutlet5, upgradeScripts)
+
