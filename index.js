@@ -1,5 +1,6 @@
 import { InstanceBase, runEntrypoint, InstanceStatus, combineRgb } from '@companion-module/base'
 import got from 'got'
+import xml from 'xml2js'
 import { configFields } from './config.js'
 import { upgradeScripts } from './upgrade.js'
 import { initPolling } from './polling.js'
@@ -442,10 +443,12 @@ class ProxicastEZOutlet5 extends InstanceBase {
 		let url = 'http://' + this.config.ip + ':' + this.config.port + '/cgi-bin/control2.cgi?user=' + this.config.username + '&passwd=' + this.config.password + '&target=1&control='
 
 		if (on) {
+			this.log('debug', 'Sending a power-on');
 			url = url + '1'
 		}
 
 		if (!on) {
+			this.log('debug', 'Sending a power-off');
 			url = url + '0'
 		}
 
@@ -453,15 +456,20 @@ class ProxicastEZOutlet5 extends InstanceBase {
 		const options = {
 			retry: {
 				limit: 0
-			}
+			},
+			url
 		}
 
 		try {
-			const response = await got.get(url, options)
 
-			this.log('info', response)
+			const response = await got(options);
 
-			this.updateStatus(InstanceStatus.Ok)
+			const xmlParser = new xml.Parser();
+
+			xmlParser.parseString(response.body, (err, result) => {
+				this.updateStatus(InstanceStatus.Ok)
+			})
+
 		} catch (e) {
 			this.log('error', `HTTP GET Request failed (${e.message})`)
 			this.updateStatus(InstanceStatus.UnknownError, e.code)
