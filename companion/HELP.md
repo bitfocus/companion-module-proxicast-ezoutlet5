@@ -4,8 +4,8 @@ Generic modules is only for use with custom applications. If you use this module
 
 **Available commands**
 
-* POST
-* GET
-* PUT
-* PATCH
-* DELETE
+- POST
+- GET
+- PUT
+- PATCH
+- DELETE

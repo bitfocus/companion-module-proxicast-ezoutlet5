@@ -1,8 +1,8 @@
 export const OnOffToggle = {
-    On: 'on',
+	On: 'on',
 	Off: 'off',
 	Toggle: 'toggle',
-	Reset: 'reset'
+	Reset: 'reset',
 }
 
 export const choiceOnOff = [

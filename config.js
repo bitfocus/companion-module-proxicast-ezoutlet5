@@ -44,5 +44,3 @@ export const configFields = [
 		required: true,
 	},
 ]
-
-

@@ -21,11 +21,6 @@
 		"entrypoint": "../index.js"
 	},
 	"manufacturer": "Proxicast",
-	"products": [
-		"EZOutlet5"
-	],
-	"keywords": [
-		"EZOutlet",
-		"Proxicast"
-	]
+	"products": ["EZOutlet5"],
+	"keywords": ["EZOutlet", "Proxicast"]
 }
