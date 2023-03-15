@@ -1,4 +1,3 @@
-
 export const configFields = [
 	{
 		type: 'textinput',
@@ -43,5 +42,7 @@ export const configFields = [
 		min: 250,
 		default: 500,
 		required: true,
-	},	
+	},
 ]
+
+
