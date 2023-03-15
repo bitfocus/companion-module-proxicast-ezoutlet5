@@ -1,19 +1,12 @@
-export const initPolling = () => {
-    if (this.data.interval) {
-        clearInterval(this.data.interval)
+export function initPolling() {
+    if (this.state.pollTimer) {
+        clearInterval(this.state.pollTimer)
     }
 
-    if (this.config.ip && this.config.polling) {
-        this.data.interval = setInterval(() => {
-            this.system.emit('rest_get', this.getUrl(), (err, result) => {
-                if (err !== null) {
-                    this.log('error', `HTTP GET Request failed (${result.error.code})`)
-                    this.status(this.STATUS_ERROR, result.error.code)
-                    return
-                }
-                this.updateVariables(result.data.lights[0])
-                this.status(this.STATUS_OK)
-            })
+    if (this.config.ip && this.config.polling && this.config.interval > 0) {
+        this.state.pollTimer = setInterval(() => {
+            this.getStatus()
+            this.checkFeedbacks()
         }, this.config.interval)
     }    
 }

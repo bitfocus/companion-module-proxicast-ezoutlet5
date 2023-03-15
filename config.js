@@ -37,10 +37,10 @@ export const configFields = [
 	{
 		type: 'number',
 		id: 'interval',
-		label: `Polling interval in milliseconds (default: 500, min: 250)`,
+		label: `Polling interval in milliseconds (default: 5000, min: 1000)`,
 		width: 12,
-		min: 250,
-		default: 500,
+		min: 1000,
+		default: 5000,
 		required: true,
 	},
 ]

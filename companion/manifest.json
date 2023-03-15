@@ -5,8 +5,8 @@
 	"description": "Proxicast EZOutlet 5",
 	"version": "0.0.1",
 	"license": "MIT",
-	"repository": "git+https://github.com/bitfocus/companion-module-generic-http.git",
-	"bugs": "https://github.com/bitfocus/companion-module-generic-http/issues",
+	"repository": "git+https://github.com/uw-madison-aae/companion-module-proxicast-ezoutlet5.git",
+	"bugs": "https://github.com/uw-madison-aae/companion-module-proxicast-ezoutlet5/issues",
 	"maintainers": [
 		{
 			"name": "Eric Dieckman",
