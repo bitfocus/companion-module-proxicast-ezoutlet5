@@ -1,11 +1,9 @@
 {
 	"name": "proxicast-ezoutlet5",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"main": "index.js",
 	"type": "module",
 	"scripts": {
-		"dev": "yarn build:main --watch",
-		"build": "rimraf dist && yarn build:main",
 		"format": "prettier -w ."
 	},
 	"repository": {
@@ -20,8 +18,7 @@
 		"xml2js": "^0.4.23"
 	},
 	"devDependencies": {
-		"@companion-module/tools": "^0.5.2",
-		"rimraf": "^4.1.2"
+		"@companion-module/tools": "^0.5.2"
 	},
 	"prettier": "@companion-module/tools/.prettierrc.json"
 }

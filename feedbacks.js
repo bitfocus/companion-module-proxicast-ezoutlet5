@@ -8,7 +8,7 @@ export function initFeedbacks() {
 		type: 'boolean',
 		name: 'Change background color by power status',
 		description:
-			'If the state of the projector (power) matches the specified value, change background color of the bank',
+			'If the state of the outlet (power) matches the specified value, change style of the bank',
 		options: [
 			{
 				type: 'dropdown',
