@@ -8,7 +8,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/uw-madison-aae/companion-module-proxicast-ezoutlet5.git"
+		"url": "git+https://github.com/bitfocus/companion-module-proxicast-ezoutlet5.git"
 	},
 	"license": "MIT",
 	"dependencies": {
